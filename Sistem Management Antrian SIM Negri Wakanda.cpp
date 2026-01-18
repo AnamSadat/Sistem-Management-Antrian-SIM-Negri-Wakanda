@@ -485,6 +485,7 @@ void search(string input){
 void pembaruanData(string inputNik){
     Node *bantu = head;
     bool ditemukan = false;
+    system("cls");
     //melakukan iterasi selama bantu tidak null, maka iterasi berlanjut
     while(bantu!=NULL){
         if(bantu->nik == inputNik){
@@ -538,6 +539,12 @@ void pembaruanData(string inputNik){
             cout << "Masukan Data baru : "; getline(cin, bantu->alamat);
         }else if(dataUbah == "jenis kelamin"){
             cout << "Masukan Data baru : "; getline(cin, bantu->jenisKelamin);
+                while(bantu->jenisKelamin != "l" && bantu->jenisKelamin != "p"){
+                    cout << "----------------------------------------------------------------\n"; 
+                cout << "Maaf jenis tidak valid\n";
+                cout << "----------------------------------------------------------------\n";
+                cout << "                  Jenis Kelamin (l/p)  : "; getline(cin, bantu->jenisKelamin);
+                }
         }else if(dataUbah == "jenis sim"){
             cout << "Masukan Data Baru : "; getline(cin, bantu->jenisSim);
                 while(bantu->jenisSim != "a" && bantu->jenisSim != "b" && bantu->jenisSim != "c"){
@@ -545,7 +552,7 @@ void pembaruanData(string inputNik){
                 cout << "Maaf jenis tidak valid\n";
                 cout << "----------------------------------------------------------------\n";
                 cout << "                  Jenis SIM (a/b/c)  : "; getline(cin, bantu->jenisSim);
-            }
+                }
         }else if(dataUbah == "no hp"){
             cout << "Masukan data baru : "; getline(cin, bantu->noHp);
         }else{
@@ -677,6 +684,12 @@ int main(){
                 cout << "                  NIK                : "; getline(cin, nik);
                 cout << "                  Alamat             : "; getline(cin, alamat);
                 cout << "                  Jenis Kelamin (l/p): "; getline(cin, jenisKelamin);
+                while(jenisKelamin != "p" && jenisKelamin != "l"){
+                    cout << "----------------------------------------------------------------\n";
+                    cout << "                  Maaf jenis tidak valid\n";
+                    cout << "----------------------------------------------------------------\n";
+                    cout << "                 Jenis Kelamin          : "; getline(cin, jenisKelamin);
+                }
                 cout << "                  Jenis SIM (a/b/c)  : "; getline(cin, jenisSim);
                 // melakukan iterasi selama sim bukan a, b, dan c
                 while(jenisSim != "a" && jenisSim != "b" &&  jenisSim != "c"){
