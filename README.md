@@ -68,7 +68,41 @@ struct Node {
 | `lihatRiwayat()`      | Tampilkan riwayat pembayaran                 |
 | `resetRiwayat()`      | Hapus semua riwayat                          |
 
+## Struktur Project (Modular)
+
+```
+src/
+├── main.cpp                    # Entry point
+├── models/
+│   └── Node.h                  # Struct Node & Riwayat
+├── services/
+│   ├── QueueService.h/.cpp     # Logika antrian (enqueue, dequeue, search, dll)
+│   ├── RiwayatService.h/.cpp   # Manajemen riwayat pembayaran
+│   └── PaymentService.h/.cpp   # Proses pembayaran
+├── ui/
+│   └── Menu.h/.cpp             # User interface & menu handling
+└── utils/
+    └── InputHelper.h/.cpp      # Validasi input & helper functions
+```
+
 ## Cara Kompilasi & Menjalankan
+
+### Versi Modular (Recommended)
+
+**Windows - Menggunakan build script:**
+
+```cmd
+.\build.bat
+.\output\SistemAntrianSIM.exe
+```
+
+**Manual compile:**
+
+```cmd
+g++ -std=c++11 -static -I src src/main.cpp src/ui/Menu.cpp src/services/QueueService.cpp src/services/RiwayatService.cpp src/services/PaymentService.cpp src/utils/InputHelper.cpp -o output/SistemAntrianSIM.exe
+```
+
+### Versi Single File (Legacy)
 
 ```bash
 g++ "Sistem Management Antrian SIM Negri Wakanda.cpp" -o antrian_sim
